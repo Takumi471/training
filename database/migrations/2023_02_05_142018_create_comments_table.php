@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('comment_name', 50);
             $table->string('comment_body', 200);
+            $table->foreignId('menu_id')->constrained('menus');
             $table->timestamps();
             $table->softDeletes();
         });
