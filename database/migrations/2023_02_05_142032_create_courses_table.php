@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('course_name', 50);
             $table->string('sum_spent_time', 200);
+            $table->foreignId('menu_id')->constrained('menus');
             $table->timestamps();
             $table->softDeletes();
         });

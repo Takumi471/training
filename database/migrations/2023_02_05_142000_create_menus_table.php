@@ -13,8 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('statistics', function (Blueprint $table) {
+        Schema::create('menus', function (Blueprint $table) {
+            $table->id();
+            $table->string('name', 50);
+            $table->string('title', 50);
+            $table->string('spent_time', 200);
             $table->foreignId('user_id')->constrained(); 
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -25,8 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('statistics', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('menuses');
     }
 };

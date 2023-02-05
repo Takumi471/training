@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('record_date', 20);
             $table->string('body_weight', 100);
             $table->string('time_spent', 30);
+            $table->foreignId('user_id')->constrained(); 
             $table->timestamps();
         });
     }
