@@ -12,6 +12,7 @@ Route::get('/dashboard', function () {
 
 Route::controller(PostController::class)->middleware(['auth'])->group(function(){
     Route::get('/', 'index')->name('index');
+    Route::get('/training/{course}', 'show')->name('show');
 });
 
 

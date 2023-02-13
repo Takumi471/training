@@ -10,13 +10,13 @@
     </head>
         </x-slot>
     <body>
-        <h1>Blog Name</h1>
+        <h1>とれとも</h1>
         
-        <div class='posts'>
-            @foreach ($posts as $post)
-            <div class='post'>
-                <h2 class ='title'>{{$post->title}}</h2>
-                <p class='body'>{{$post->body}}</p>
+        <div class='courses'>
+            @foreach ($courses as $course)
+            <div class='course'>
+                <a href="/training/{{ $course->id }}"><h2 class ='title'>{{$course->course_name}}</h2></a>
+                <p class='spent_time'>{{$course->sum_spent_time}}</p>
             </div>
             @endforeach
         </div>
