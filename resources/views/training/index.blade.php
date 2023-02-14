@@ -22,6 +22,15 @@
         </div>
         {{ Auth::user()->name }}
         
+        <div class='statistics'>
+            @foreach ($users as $user)
+            <div class='statistic'>
+                <a href="/training/{{ $user->id }}/statistic"><h2 class ='title'>{{$user->name}}の統計</h2></a>
+            </div>
+            @endforeach
+        </div>
+            
+        
     </body>
     </x-app-layout>
 </html>

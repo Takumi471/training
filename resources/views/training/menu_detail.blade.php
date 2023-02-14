@@ -5,32 +5,23 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Posts</title>
+        <title>メニュー詳細</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
         </x-slot>
     <body>
-        @foreach ($courses as $course)
+        @foreach ($menus as $menu)
         <h1 class="title">
-            {{ $course->course_name }}
+            {{ $menu->name }}
         </h1>
         <div class="content">
             <div class="content__post">
                 <h3>所要時間</h3>
-                <p>{{ $course->sum_spent_time }}</p>    
+                <p>{{ $menu->spent_time }}</p>    
             </div>
         </div>
         @endforeach
-        
-        <div class='menus'>
-            @foreach ($menus as $menu)
-            <div class='menu'>
-                <a href="/training/{{ $menu->id }}/detail"><h2 class ='title'>{{$menu->name}}の詳細</h2></a>
-            </div>
-            @endforeach
-        </div>
-        
         <div class="footer">
             <a href="/">戻る</a>
         </div>
