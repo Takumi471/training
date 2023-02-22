@@ -1,35 +1,55 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Requests\PostRequest; 
 
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Course;
 use App\Models\User;
-use App\Models\Statistics;
+use App\Models\Statistic;
 use App\Models\Menu;
+use App\Models\Tag;
 
 class PostController extends Controller
 {
-    public function index(Course $course,User $user)
+    public function show(Post $post,Menu $menu)
     {
-    return view('training/index')->with([
-        'courses' => $course->get(),
-        'users' => $user->get()]);
+        return view('training/search_menu')->with([
+            'menus' => $menu->get(),
+            'posts' => $post->get()
+            ]);
+    }
+    public function menu_detail(User $user,Menu $menu,Post $post,Tag $tag,Comment $comment)
+    {
+        return view('training/menu_detail')->with([
+            'users' => $user->get(),
+            'menus' => $menu->get(),
+            'posts' => $post->get(),
+            'tags' => $tag->get(),
+            'comments' => $comment->get()
+            ]);
     }
     
-    public function show(Course $course,Menu $menu)
+    public function store(Post $post, PostRequest $request)
     {
-        return view('training/show')->with([
-        'courses' => $course->get(),
-        'menus' => $menu->get()]);
+        $input = $request['course'];
+        $post->fill($input)->save();
+        return redirect('/');
     }
-    public function menu_detail(Menu $menu)
+    public function delete_menu(Post $post)
     {
-        return view('training/menu_detail')->with(['menus' => $menu->get()]);
+        $post->delete();
+        return redirect('/');
     }
-    public function statistic(Statistics $statistic)
+    public function update_menu(PostRequest $request, Post $post)
     {
-        return view('training/statistic')->with(['statistics' => $statistic->get()]);
+        $input_post = $request['post'];
+        $post->fill($input_post)->save();
+        return redirect('/');
+    }
+    public function create_menu(Course $course,Menu $menu)
+    {
+        return view('training/create_menu');
     }
 }

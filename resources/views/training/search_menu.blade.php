@@ -8,8 +8,16 @@
     </head>
         </x-slot>
     <body>
-        <h1>トレーニングメニューを作る</h1>
-        
+        <h1>トレーニングメニュー一覧</h1>
+        <!--コースの一覧表示-->
+        <div class='posts'>
+            <p>マイトレーニングコース</p>
+            @foreach ($posts as $post)
+            <div class='post'>
+                <a href="/posts/{{ $post->id }}"><h2 class ='title'>{{$post->menu_name}}</h2></a>
+            </div>
+            @endforeach
+        </div>
         </form>
         <div class="back">[<a href="/">back</a>]</div>
     </body>

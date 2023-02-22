@@ -7,7 +7,7 @@ use DateTime;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class MenuSeeder extends Seeder
+class StatisticSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,15 +16,14 @@ class MenuSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('menus')->insert([
+        DB::table('statistics')->insert([
                 'id' => '1',
-                'name' => 'トレーニングメニュー1',
-                'title' => '腹筋30回',
-                'spent_time' => '2時間',
+                'record_date' => '2023/02/22',
+                'body_weight' => '58',
+                'time_spent' => '4',
                 'user_id' => 1,
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime(),
-                'deleted_at' => new DateTime(),
                 ]);
     }
 }

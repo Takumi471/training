@@ -18,8 +18,8 @@ class CourseSeeder extends Seeder
     {
         DB::table('courses')->insert([
                 'id' => '1',
-                'course_name' => 'トレーニングメニュー1',
-                'sum_spent_time' => '2時間',
+                'course_name' => 'トレーニングコース1',
+                'sum_spent_time' => '3時間',
                 'menu_id' => 1,
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime(),

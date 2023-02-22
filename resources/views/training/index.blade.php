@@ -11,21 +11,31 @@
         </x-slot>
     <body>
         <h1>とれとも</h1>
-        
+        <!--コースの一覧表示-->
         <div class='courses'>
+            <p>マイトレーニングコース</p>
             @foreach ($courses as $course)
             <div class='course'>
-                <a href="/training/{{ $course->id }}"><h2 class ='title'>{{$course->course_name}}</h2></a>
-                <p class='spent_time'>{{$course->sum_spent_time}}</p>
+                <a href="/courses/{{ $course->id }}"><h2 class ='title'>{{$course->course_name}}</h2></a>
             </div>
             @endforeach
         </div>
+        <!--ページ遷移のボタン作成-->
         {{ Auth::user()->name }}
         
         <div class='statistics'>
             @foreach ($users as $user)
             <div class='statistic'>
-                <a href="/training/{{ $user->id }}/statistic"><h2 class ='title'>{{$user->name}}の統計</h2></a>
+                <a href="/statistic/{{ $user->id }}"><h2 class ='title'>統計を見る</h2></a>
+            </div>
+            <div class='create_menu'>
+                <a href="/posts/create_menu"><h2 class ='title'>メニューを作る</h2></a>
+            </div>
+            <div class='search_menu'>
+                <a href="/posts"><h2 class ='title'>メニューを探す</h2></a>
+            </div>
+            <div class='create_course'>
+                <a href="/courses/create_course"><h2 class ='title'>コースを作る</h2></a>
             </div>
             @endforeach
         </div>
