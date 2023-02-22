@@ -17,7 +17,7 @@
         </h1>
         <div class="content">
             <div class="content__post">
-                <h3>所要時間</h3>
+                <h3>総所要時間</h3>
                 <p>{{ $course->sum_spent_time }}</p>    
             </div>
         </div>
@@ -26,7 +26,7 @@
         <div class='menus'>
             @foreach ($menus as $menu)
             <div class='menu'>
-                <a href="/training/{{ $menu->id }}/detail"><h2 class ='title'>{{$menu->name}}の詳細</h2></a>
+                <a href="/menus/{{ $menu->id }}"><h2 class ='title'>{{$menu->name}}</h2></a>
             </div>
             @endforeach
         </div>

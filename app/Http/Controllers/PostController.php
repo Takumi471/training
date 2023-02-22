@@ -35,7 +35,7 @@ class PostController extends Controller
     {
         $input = $request['course'];
         $post->fill($input)->save();
-        return redirect('/');
+        return redirect('/posts/'.$post->get());
     }
     public function delete_menu(Post $post)
     {
@@ -48,8 +48,10 @@ class PostController extends Controller
         $post->fill($input_post)->save();
         return redirect('/');
     }
-    public function create_menu(Course $course,Menu $menu)
+    public function create_menu(Course $course,Menu $menu,Tag $tag)
     {
-        return view('training/create_menu');
+        return view('training/create_menu')->with([
+            'tags' => $tag->get(),
+            ]);
     }
 }

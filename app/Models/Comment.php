@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Menu;
 
 class Comment extends Model
 {
@@ -14,6 +15,6 @@ class Comment extends Model
     ];
     public function post()   
     {
-    return $this->belongsTo(Category::class);
+    return $this->belongsTo(Menu::class);
     }
 }

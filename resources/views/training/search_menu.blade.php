@@ -11,14 +11,15 @@
         <h1>トレーニングメニュー一覧</h1>
         <!--コースの一覧表示-->
         <div class='posts'>
-            <p>マイトレーニングコース</p>
             @foreach ($posts as $post)
             <div class='post'>
-                <a href="/posts/{{ $post->id }}"><h2 class ='title'>{{$post->menu_name}}</h2></a>
+                <a href="/menus/{{ $post->id }}"><h2 class ='title'>{{$post->menu_name}}投稿日:{{$post->created_at}}</h2></a>
             </div>
             @endforeach
         </div>
-        </form>
+        <div class='create_course'>
+                <a href="/posts/create_menu"><h2 class ='title'>わたしもコースを投稿する</h2></a>
+            </div>
         <div class="back">[<a href="/">back</a>]</div>
     </body>
     </x-app-layout>

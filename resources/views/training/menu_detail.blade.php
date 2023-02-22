@@ -22,6 +22,16 @@
             </div>
         </div>
         @endforeach
+        
+        <form action="/comments" method="POST">
+            @csrf
+            <div class="body">
+                <h2>コメント内容</h2>
+                <textarea name="comment[comment_body]" placeholder="コメント内容を記入してください。">{{ old('comment.comment_body') }}</textarea>
+                <p class="body__error" style="color:red">{{ $errors->first('comment_body') }}</p>
+            </div>
+            <input type="submit" value="コメントを投稿"/>
+        </form>
         <div class="footer">
             <a href="/">戻る</a>
         </div>

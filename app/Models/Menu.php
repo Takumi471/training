@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\Course;
 class Menu extends Model
 {
     use HasFactory;
@@ -15,6 +15,6 @@ class Menu extends Model
     ];
     public function courses()
     {
-    return $this->belongsTo(Category::class);
+    return $this->belongsTo(Course::class);
     }
 }

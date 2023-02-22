@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
+use App\Models\Tag;
+use App\Models\Comment;
 
 class Post extends Model
 {
@@ -12,15 +15,17 @@ class Post extends Model
     protected $fillable = [
     'menu_name',
     'menu_title',
+    'menu_body',
     'menu_spent_time',
+    'created_at'
     ];
     public function user()
     {
-    return $this->belongsTo(Category::class);
+    return $this->belongsTo(User::class);
     }
     public function tags()   
     {
-    return $this->hasMany(Post::class);  
+    return $this->hasMany(Tag::class);  
     }
     public function comments()   
     {
