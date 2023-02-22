@@ -41,9 +41,10 @@ class CourseController extends Controller
         $course->delete();
         return redirect('/');
     }
-    public function create_course(Course $course,Menu $menu)
+    public function create_course(Course $course,Menu $menu,Post $post)
     {
         return view('training/create_course')->with([
+            'posts' => $post->get(),
             'menus' => $menu->get()
             ]);
     }

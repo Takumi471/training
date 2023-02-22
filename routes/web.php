@@ -26,7 +26,7 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function()
     Route::post('/posts', 'store')->name('store');
     Route::get('/posts/create_menu', 'create_menu')->name('create_menu');
     Route::get('/posts/{post}', 'menu_detail')->name('menu_detail');
-    Route::get('/posts', 'show')->name('show');
+    Route::get('/posts/', 'show')->name('show');
     Route::put('/posts/{post}', 'update_menu')->name('update_menu');
     Route::delete('/posts/{post}', 'delete_menu')->name('delete_menu');
 });
