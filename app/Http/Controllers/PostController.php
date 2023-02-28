@@ -33,9 +33,11 @@ class PostController extends Controller
     
     public function store(Post $post, PostRequest $request)
     {
-        $input = $request['course'];
+        $input = $request['post'];
+        $input['user_id'] = auth()->id();
+        
         $post->fill($input)->save();
-        return redirect('/posts/'.$post->get());
+        return redirect('/posts/');
     }
     public function delete_menu(Post $post)
     {

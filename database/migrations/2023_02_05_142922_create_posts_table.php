@@ -16,9 +16,10 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('menu_name', 50);
-            $table->string('menu_title', 50);
+            $table->string('menu_body', 50);
             $table->string('menu_time_spent', 50);
-            $table->foreignId('user_id')->constrained(); 
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('tag_id')->constrained();
             $table->timestamps();
             $table->softDeletes();
         });

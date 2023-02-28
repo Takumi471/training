@@ -16,8 +16,9 @@ class Post extends Model
     'menu_name',
     'menu_title',
     'menu_body',
-    'menu_spent_time',
-    'created_at'
+    'menu_time_spent',
+    'tag_id',
+    'user_id'
     ];
     public function user()
     {
