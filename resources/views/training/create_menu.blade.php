@@ -13,9 +13,14 @@
         <form action="/posts" method="POST">
             @csrf
             <div class="title">
-                <h2>メニュー名</h2>
-                <input type="text" name="post[menu_title]" placeholder="メニュータイトルを記入してください。" value="{{ old('post.menu_title') }}"/>
+                <h2>投稿タイトル</h2>
+                <input type="text" name="post[menu_title]" placeholder="投稿タイトルを記入してください。" value="{{ old('post.menu_title') }}"/>
                 <p class="title__error" style="color:red">{{ $errors->first('post.menu_title') }}</p>
+            </div>
+            <div class="title">
+                <h2>メニュー名</h2>
+                <input type="text" name="post[menu_name]" placeholder="メニュー名を記入してください。" value="{{ old('post.menu_title') }}"/>
+                <p class="title__error" style="color:red">{{ $errors->first('post.menu_name') }}</p>
             </div>
             <div class="body">
                 <h2>トレーニング内容</h2>
@@ -25,7 +30,7 @@
             <div class="time">
                 <h2>所要時間</h2>
                 <textarea name="post[menu_time_spent]" placeholder="所要時間を記入してください。">{{ old('post.menu_time_spent') }}</textarea>
-                <p class="time__error" style="color:red">{{ $errors->first('post.menu_body') }}</p>
+                <p class="time__error" style="color:red">{{ $errors->first('post.menu_time_spent') }}</p>
             </div>
             <div class="tag">
                 <h2>タグを選択</h2>

@@ -11,7 +11,8 @@ class PostRequest extends FormRequest
         return [
             'post.menu_name' => 'required|string|max:100',
             'post.menu_title' => 'required|string|max:100',
-            'post.menu_time_spent' => 'required|string|max:100',
+            'post.menu_body' => 'required|string|max:100',
+            'post.menu_time_spent' => 'required|max:100',
         ];
     }
 }

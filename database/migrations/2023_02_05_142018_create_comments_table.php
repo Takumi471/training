@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->string('comment_name', 50);
             $table->string('comment_body', 200);
-            $table->foreignId('menu_id')->constrained('menus');
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('menu_id')->constrained();
             $table->timestamps();
             $table->softDeletes();
         });
